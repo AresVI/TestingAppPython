@@ -6,7 +6,7 @@ import json
 
 class Request:
 
-    HOST = 'localhost'
+    HOST = '165.227.89.229'
 
     PORT = '8080'
 

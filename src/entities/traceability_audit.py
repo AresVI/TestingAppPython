@@ -11,7 +11,11 @@ class TraceabilityAudit:
         return Request.execute_post_request('api/traceability-audits', traceability_audit, authorization=authorization)
 
     @classmethod
-    def get_traceability_audit(cls, traceability_audit_id, authorization=""):
+    def get_all_traceability_audit(cls, authorization=""):
+        return Request.execute_get_request("api/traceability-audits", authorization=authorization)
+
+    @classmethod
+    def get_one_traceability_audit(cls, traceability_audit_id, authorization=""):
         return Request.execute_get_request("api/traceability-audits/%s" % traceability_audit_id,
                                            authorization=authorization)
 
@@ -41,7 +45,7 @@ class TraceabilityAudit:
 
     @classmethod
     def simulate_audit(cls, traceability_audit_id, authorization=""):
-        traceability_audit = TraceabilityAudit.get_traceability_audit(traceability_audit_id, authorization=authorization)
+        traceability_audit = TraceabilityAudit.get_one_traceability_audit(traceability_audit_id, authorization=authorization)
 
         audit_process_recommendation_set = traceability_audit.get('recommendationSet')[0].get(
             'auditProcessRecommendationSet')
