@@ -36,8 +36,3 @@ class ListAudit(object):
             single_thread = threading.Thread(target=ListAudit.get_information, args=[loop_count, time_sleep])
             threads.append(single_thread)
             single_thread.start()
-            single_thread.join()
-
-        file = open("./listAudit.csv", "r")
-
-        return file.read()

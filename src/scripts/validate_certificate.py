@@ -35,8 +35,3 @@ class ValidateCertificate(object):
             single_thread = threading.Thread(target=ValidateCertificate.get_information, args=[loop_count, time_sleep])
             threads.append(single_thread)
             single_thread.start()
-            single_thread.join()
-
-        file = open("./ValidateCertificate.csv", "r")
-
-        return file.read()

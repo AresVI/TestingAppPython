@@ -36,8 +36,3 @@ class NextCategory(object):
             single_thread = threading.Thread(target=NextCategory.get_information, args=[loop_count, time_sleep])
             threads.append(single_thread)
             single_thread.start()
-            single_thread.join()
-
-        file = open("./NextCategory.csv", "r")
-
-        return file.read()
