@@ -14,7 +14,9 @@ def list_audit():
     loop_count = request.args.get('loop_count', default=20, type=int)
     time_sleep = request.args.get('time_sleep', default=0, type=int)
 
-    return ListAudit.run(count_threads, loop_count, time_sleep)
+    ListAudit.run(count_threads, loop_count, time_sleep)
+
+    return "Processing"
 
 
 @app.route('/view_audit/')
@@ -23,7 +25,9 @@ def view_audit():
     loop_count = request.args.get('loop_count', default=20, type=int)
     time_sleep = request.args.get('time_sleep', default=0, type=int)
 
-    return ViewAudit.run(count_threads, loop_count, time_sleep)
+    ViewAudit.run(count_threads, loop_count, time_sleep)
+
+    return "Processing"
 
 
 @app.route('/next_category/')
@@ -32,7 +36,9 @@ def next_category():
     loop_count = request.args.get('loop_count', default=20, type=int)
     time_sleep = request.args.get('time_sleep', default=0, type=int)
 
-    return NextCategory.run(count_threads, loop_count, time_sleep)
+    NextCategory.run(count_threads, loop_count, time_sleep)
+
+    return "Processing"
 
 
 @app.route('/validate_certificate/')
@@ -40,8 +46,10 @@ def validate_certificate():
     count_threads = request.args.get('count_threads', default=200, type=int)
     loop_count = request.args.get('loop_count', default=20, type=int)
     time_sleep = request.args.get('time_sleep', default=0, type=int)
-
-    return ValidateCertificate.run(count_threads, loop_count, time_sleep)
+    
+    ValidateCertificate.run(count_threads, loop_count, time_sleep)
+    
+    return "Processing"
 
 
 if __name__ == '__main__':
