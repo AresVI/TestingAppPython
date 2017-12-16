@@ -15,7 +15,7 @@ class ValidateCertificate(object):
             cuit = "30-70798511-5"
             Company.get_certificate(cuit)
             consuming_time = time.time() - start_time
-            file = open("/home/jcaballero/validateCertificate.csv", "a")
+            file = open("./validateCertificate.csv", "a")
             file.write("{}\n".format(consuming_time))
             file.close()
             print("--- Tiempo empleado %s ---" % consuming_time)
