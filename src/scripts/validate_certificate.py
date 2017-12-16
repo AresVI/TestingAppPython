@@ -8,11 +8,10 @@ from src.entities.company import Company
 class ValidateCertificate(object):
 
     @classmethod
-    def get_information(cls):
-        loop_count = 100000
+    def get_information(cls, loop_count, sleep_time):
         for _ in range(loop_count):
+            time.sleep(sleep_time)
             start_time = time.time()
-            time.sleep(0)
             cuit = "30-70798511-5"
             Company.get_certificate(cuit)
             consuming_time = time.time() - start_time
