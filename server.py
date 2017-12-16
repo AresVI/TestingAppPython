@@ -1,4 +1,3 @@
-import time
 from flask import Flask, request
 
 from src.scripts.list_audit import ListAudit
@@ -9,7 +8,7 @@ from src.scripts.view_audit import ViewAudit
 app = Flask(__name__)
 
 
-@app.route('/ListAudit')
+@app.route('/list_audit/')
 def list_audit():
     count_threads = request.args.get('count_threads', default=200, type=int)
     loop_count = request.args.get('loop_count', default=20, type=int)
@@ -18,7 +17,7 @@ def list_audit():
     return ListAudit.run(count_threads, loop_count, time_sleep)
 
 
-@app.route('/ViewAudit')
+@app.route('/view_audit/')
 def view_audit():
     count_threads = request.args.get('count_threads', default=200, type=int)
     loop_count = request.args.get('loop_count', default=20, type=int)
@@ -27,8 +26,8 @@ def view_audit():
     return ViewAudit.run(count_threads, loop_count, time_sleep)
 
 
-@app.route('/next_category')
-def view_audit():
+@app.route('/next_category/')
+def next_category():
     count_threads = request.args.get('count_threads', default=200, type=int)
     loop_count = request.args.get('loop_count', default=20, type=int)
     time_sleep = request.args.get('time_sleep', default=0, type=int)
@@ -36,8 +35,8 @@ def view_audit():
     return NextCategory.run(count_threads, loop_count, time_sleep)
 
 
-@app.route('/validate_certificate')
-def view_audit():
+@app.route('/validate_certificate/')
+def validate_certificate():
     count_threads = request.args.get('count_threads', default=200, type=int)
     loop_count = request.args.get('loop_count', default=20, type=int)
     time_sleep = request.args.get('time_sleep', default=0, type=int)
