@@ -7,6 +7,16 @@ from src.scripts.view_audit import ViewAudit
 
 app = Flask(__name__)
 
+@app.route('/create_audit/')
+def create_audit():
+    count_threads = request.args.get('count_threads', default=200, type=int)
+    loop_count = request.args.get('loop_count', default=20, type=int)
+    time_sleep = request.args.get('time_sleep', default=0, type=int)
+    company = request.args.get('company', default=None, type=int)
+
+    CreateAudit.run(count_threads, loop_count, time_sleep,company)
+
+    return "Processing"
 
 @app.route('/list_audit/')
 def list_audit():
@@ -17,7 +27,6 @@ def list_audit():
     ListAudit.run(count_threads, loop_count, time_sleep)
 
     return "Processing"
-
 
 @app.route('/view_audit/')
 def view_audit():
